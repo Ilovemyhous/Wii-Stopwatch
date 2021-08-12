@@ -1,11 +1,13 @@
 //By Ilovemyhouse
 
 //TO-DO
+
 //Finish translations
 //Update the version
+//Check if it works
 
 
-#include "gccore.h"
+//#include <gccore.h>
 #include "wpad.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -105,14 +107,14 @@ int main(int argc, char **argv) {
 			printf("Initialising. . . Please Wait\r");
 			afficheLogo();
 			printf("Homebrew made by Ilovemyhouse.\n");
-			printf("Version 2.0.0 Alpha\n");
+			printf("Version 2.0.0 Alpha Dev\n");
 			getchar();
 			printf(" \n");
 			printf("Press A to start the stopwatch.\n");
 			printf("Press A again to make a lap.\n");
 			printf("Press B to pause and resume the stopwatch.\n");
 			printf("Press + to stop and reset the timer.\n");
-			printf("Press - to see the credits.")
+			printf("Press - to see the credits.");
 			printf("Press the HOME button to exit the stopwatch.\n");
 			printf(" \n");
 			break;
@@ -120,41 +122,41 @@ int main(int argc, char **argv) {
 			printf("Initialisierung. . . Bitte warten\r");
 			afficheLogo();
 			printf("Homebrew von Ilovemyhouse.\n");
-			printf("Version 2.0.0 Alpha\n");
+			printf("Version 2.0.0 Alpha Dev\n");
 			getchar();
 			printf(" \n");
 			printf("Druecke A um die Stopuhr zu starten.\n");
 			printf("Druecke wieder A um eine Runde zu machen.\n");
 			printf("Druecke auf B um die Stopuhr zu pausen und zu entpausen.\n");
 			printf("Druecke + um die Stopuhr aufzuhalten, und zu reinitialisieren.\n");
-			printf("Druecke - um die Kredite zu sehen.")
+			printf("Druecke - um die Kredite zu sehen.");
 			printf("Druecke den HOME Knopf um die Stopuhr zu verlassen.\n");
 			break;
 		case 3: //Français
 			printf("Initialisation. . . Veuillez patienter\r");
 			afficheLogo();
 			printf("Homebrew fait par Ilovemyhouse.\n");
-			printf("Version 2.0.0 Alpha\n");
+			printf("Version 2.0.0 Alpha Dev\n");
 			getchar();
 			printf(" \n");
 			printf("Appuyez sur A pour demarrer le chronometre.\n");
 			printf("Appuyez de nouveau sur A pour faire un tour.\n");
 			printf("Appuyez sur + pour arrêter, et réinistialiser le chronometre.\n");
 			printf("Appuyez sur B pour mettre le chronomètre sur pause et pour continuer.\n");
-			printf("Appuyez sur - pour afficher les crédits")
+			printf("Appuyez sur - pour afficher les crédits");
 			printf("Appuyez sur le bouton HOME pour quitter le chronometre.\n");
 			break;
 		case 5: //Italien. Par ReddyX_73#5472
 			printf("Caricamento... Attendere\r");
 			afficheLogo();
 			printf("Homebrew realizzato da Ilovemyhouse.\n");
-			printf("Versione 2.0.0 Alpha\n");
+			printf("Versione 2.0.0 Alpha Dev\n");
 			getchar();
 			printf(" \n");
 			printf("Premi A per avviare il cronometro.\n");
 			printf("Premi A per fare un giro.\n");
 			printf("Premi + per fermare e resettare il timer.\n");
-			printf("Premi - per visualizzare i crediti.")
+			printf("Premi - per visualizzare i crediti.");
 			printf("Premi B per stoppare e riprendere il cronometro.\n");
 			printf("Premi il pulsante HOME per uscire dal cronometro.\n");
 			break;
@@ -162,12 +164,12 @@ int main(int argc, char **argv) {
 			printf("Initialisatie. . . Wacht alsjeblieft\r");
 			afficheLogo();
 			printf("Homebrew gemaakt door Ilovemyhouse.\n");
-	    	printf("Versie 2.0.0 Alpha\n");
+	    	printf("Versie 2.0.0 Alpha Dev\n");
 			getchar();
 			printf(" \n");
 			printf("Druk op A om de stopwatch te starten.\n");
 			printf("Press A again to make a lap.\n");
-			printf("Druk op - om de credits te zien")
+			printf("Druk op - om de credits te zien");
 			printf("Druk op + om de timer te stoppen en resetten.\n");
 			printf("Druk op de HOME knop om uit de stopwatch te gaan.\n");
 			break;
@@ -212,7 +214,7 @@ int main(int argc, char **argv) {
 				default : //Traduction manquante
 					printf("Error: Translation missing, or error in the Code!\n");
 					sleep(1);
-					printf("Exiting...")
+					printf("Exiting...");
 					break;
 			}
 			exit(0);
@@ -337,7 +339,7 @@ int main(int argc, char **argv) {
 					break;
 				default : //Traduction manquante
 					printf("Error: Translation is missing, or something went wrong in the code!\n");
-					printf("But the time sould normally be reseted")
+					printf("But the time sould normally be reseted");
 					break;
 			}
 		}
@@ -359,7 +361,7 @@ int main(int argc, char **argv) {
 			}
 
 		//Crédits
-		if ( pressed & WPAD_BUTTON_MINUS )
+		if (pressed & WPAD_BUTTON_MINUS)
 			if ( Start > 1)
 			{
 				switch(language){
@@ -380,7 +382,7 @@ int main(int argc, char **argv) {
 					break;
 				default : //Traduction manquante
 					printf("Error: Translation is missing, or something went wrong in the code!\n");
-					printf("But the time cannot be shown because the stopwatch is running.")
+					printf("But the time cannot be shown because the stopwatch is running.");
 					break;
 				}
 			}
@@ -389,23 +391,23 @@ int main(int argc, char **argv) {
 				switch(language){
 				case 1:	//Anglais
 					printf("CREDITS\n");
-					printf("Code: Ilovemyhouse\n")
-					printf("Testing: Ilovemyhouse\n")
-					printf("Translation: Some friends on Discord.\n")
-					printf("Libraries: libogc - github.com/devkitPro/libogc")
+					printf("Code: Ilovemyhouse\n");
+					printf("Testing: Ilovemyhouse\n");
+					printf("Translation: Some friends on Discord.\n");
+					printf("Libraries: libogc - github.com/devkitPro/libogc");
 					break;
 				case 2: //Allemand
 					printf("Kredite\n");
-					printf("Kode: Ilovemyhouse\n")
-					printf("Testen: Ilovemyhouse\n")
-					printf("Uebersetzungen: Freunde auf Discord.\n")
-					printf("Bibliotheken: libogc - github.com/devkitPro/libogc")
+					printf("Kode: Ilovemyhouse\n");
+					printf("Testen: Ilovemyhouse\n");
+					printf("Uebersetzungen: Freunde auf Discord.\n");
+					printf("Bibliotheken: libogc - github.com/devkitPro/libogc");
 				case 3: //Français
 					printf("CRÉDITS\n");
-					printf("Code: Ilovemyhouse\n")
-					printf("Test: Ilovemyhouse\n")
-					printf("Traductions: Des amis sur Discord.\n")
-					printf("Librairies: libogc - github.com/devkitPro/libogc")
+					printf("Code: Ilovemyhouse\n");
+					printf("Test: Ilovemyhouse\n");
+					printf("Traductions: Des amis sur Discord.\n");
+					printf("Librairies: libogc - github.com/devkitPro/libogc");
 					break;
 				case 5: //Italien
 					printf("I crediti non possono essere visualizzati perché il cronometro è acceso.\n");
@@ -416,27 +418,27 @@ int main(int argc, char **argv) {
 				default : //Traduction manquante
 					printf("Error: Translation is missing, or something went wrong in the code!\n");
 					printf("CREDITS\n");
-					printf("Code: Ilovemyhouse\n")
-					printf("Testing: Ilovemyhouse\n")
-					printf("Translation: Some friends on Discord.\n")
-					printf("Libraries: libogc - github.com/devkitPro/libogc")
+					printf("Code: Ilovemyhouse\n");
+					printf("Testing: Ilovemyhouse\n");
+					printf("Translation: Some friends on Discord.\n");
+					printf("Libraries: libogc - github.com/devkitPro/libogc");
 					break;
 				}
 			}
 			
 		//Easter Egg
 		if ( pressed & WPAD_BUTTON_1 )
-			if ( pressed & WPAD_BUTTON_2 )
+			if (pressed & WPAD_BUTTON_2)
 				printf("Hello World!\n");
 
 		//Easter Egg 2
 		if ( pressed & WPAD_BUTTON_PLUS)
-			if ( pressed & WPAD_BUTTON_MINUS)
+			if (pressed & WPAD_BUTTON_MINUS)
 				printf("You found an Easter Egg!\n");
 
 		//Easter Egg 3
 		if ( pressed & WPAD_BUTTON_B )
-			if ( pressed & WPAD_BUTTON_A)
+			if (pressed & WPAD_BUTTON_A)
 				printf("This text is just 0's & 1's.\n");
 
 		//Rafraîchi l'écran.

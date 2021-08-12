@@ -32,7 +32,7 @@ distribution.
 #define __WPAD_H__
 
 #include <gctypes.h>
-#include <wiiuse/wiiuse.h>
+#include "wiiuse.h"
 
 #define WPAD_MAX_IR_DOTS						4
 											
