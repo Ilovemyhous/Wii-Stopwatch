@@ -1,11 +1,17 @@
-//TO-DO
+//TO-DO:
 
-//Finish translations
-//Update the version
-//Check if it works
+//Finish translations.
+//Fix issues I guess.
 
 
-//#include <gccore.h>
+//ISSUES:
+
+//The pause fonction is not working.
+//Issues with some special characters.
+//Credits shown in every language.
+
+
+#include <gccore.h>
 #include "wpad.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -97,15 +103,15 @@ int main(int argc, char **argv) {
 
 	//Get the system language
 	int language = CONF_GetLanguage();
-	printf("%d\n", language);
-	//printf("%d\n", Start);
+	//printf("%d\n", language); //DEBUG. Prints the language variable.
+	//printf("%d\n", Start); //DEBUG. Prints the starts variable.
 	
 	switch(language){
-		case 1: //Egnlish
+		case 1: //English
 			printf("Initialising. . . Please Wait\r");
 			afficheLogo();
 			printf("Homebrew made by Ilovemyhouse.\n");
-			printf("Version 2.0.0 Alpha Dev\n");
+			printf("Version 2.0.0 Alpha Dev v1\n");
 			getchar();
 			printf(" \n");
 			printf("Press A to start the stopwatch.\n");
@@ -120,7 +126,7 @@ int main(int argc, char **argv) {
 			printf("Initialisierung. . . Bitte warten\r");
 			afficheLogo();
 			printf("Homebrew von Ilovemyhouse.\n");
-			printf("Version 2.0.0 Alpha Dev\n");
+			printf("Version 2.0.0 Alpha Dev v1\n");
 			getchar();
 			printf(" \n");
 			printf("Druecke A um die Stopuhr zu starten.\n");
@@ -134,7 +140,7 @@ int main(int argc, char **argv) {
 			printf("Initialisation. . . Veuillez patienter\r");
 			afficheLogo();
 			printf("Homebrew fait par Ilovemyhouse.\n");
-			printf("Version 2.0.0 Alpha Dev\n");
+			printf("Version 2.0.0 Alpha Dev v1\n");
 			getchar();
 			printf(" \n");
 			printf("Appuyez sur A pour demarrer le chronometre.\n");
@@ -148,7 +154,7 @@ int main(int argc, char **argv) {
 			printf("Caricamento... Attendere\r");
 			afficheLogo();
 			printf("Homebrew realizzato da Ilovemyhouse.\n");
-			printf("Versione 2.0.0 Alpha Dev\n");
+			printf("Versione 2.0.0 Alpha Dev v1\n");
 			getchar();
 			printf(" \n");
 			printf("Premi A per avviare il cronometro.\n");
@@ -162,7 +168,7 @@ int main(int argc, char **argv) {
 			printf("Initialisatie. . . Wacht alsjeblieft\r");
 			afficheLogo();
 			printf("Homebrew gemaakt door Ilovemyhouse.\n");
-	    	printf("Versie 2.0.0 Alpha Dev\n");
+	    	printf("Versie 2.0.0 Alpha Dev v1\n");
 			getchar();
 			printf(" \n");
 			printf("Druk op A om de stopwatch te starten.\n");
@@ -186,8 +192,10 @@ int main(int argc, char **argv) {
 		u32 pressed = WPAD_ButtonsDown(0);
 
 		//To exit the homebrew, you simply have to press the home button
-		if ( pressed & WPAD_BUTTON_HOME ) break;
+		if ( pressed & WPAD_BUTTON_HOME )
 		{
+			printf("Debug exit\r"); //DEBUG. Prints a message before exiting.
+			sleep(5);
 			switch(language){
 				case 1: //Anglais
 					printf("Exiting...\r");
