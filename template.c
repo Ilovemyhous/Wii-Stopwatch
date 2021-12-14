@@ -1,5 +1,3 @@
-//By Ilovemyhouse
-
 //TO-DO
 
 //Finish translations
@@ -146,7 +144,7 @@ int main(int argc, char **argv) {
 			printf("Appuyez sur - pour afficher les crédits\n");
 			printf("Appuyez sur le bouton HOME pour quitter le chronometre.\n");
 			break;
-		case 5: //Italian by ReddyX_73#5472
+		case 5: //Italian
 			printf("Caricamento... Attendere\r");
 			afficheLogo();
 			printf("Homebrew realizzato da Ilovemyhouse.\n");
@@ -292,7 +290,7 @@ int main(int argc, char **argv) {
 		//Code to stop, and reset the stopwatch
 		if ( pressed & WPAD_BUTTON_PLUS ){
 			switch(language){
-				case 1:	//Anglais
+				case 1:	//English
 					printf("Stopped and reset!\n");
 					Hour = 00;
 					Minute = 00;
@@ -301,7 +299,7 @@ int main(int argc, char **argv) {
 					Start = 0;
 					Pause = false;
 					break;
-				case 2: //Allemand
+				case 2: //German
 					printf("Gestopppt und zurückgesetzt!\n");
 					Hour = 00;
 					Minute = 00;
@@ -310,7 +308,7 @@ int main(int argc, char **argv) {
 					Start = 0;
 					Pause = false;
 					break;
-				case 3: //Français
+				case 3: //French
 					printf("Stoppé et réinistialisé!\n");
 					Hour = 00;
 					Minute = 00;
@@ -319,7 +317,7 @@ int main(int argc, char **argv) {
 					Start = 0;
 					Pause = false;
 					break;
-				case 5: //Italien
+				case 5: //Italian
 					printf("Fermato e resettato!\n");
 					Hour = 00;
 					Minute = 00;
@@ -328,7 +326,7 @@ int main(int argc, char **argv) {
 					Start = 0;
 					Pause = false;
 					break;
-				case 7: //Néerlandais
+				case 7: //Dutch
 					printf("Gestopt en gereset!\n");
 					Hour = 00;
 					Minute = 00;
@@ -337,7 +335,7 @@ int main(int argc, char **argv) {
 					Start = 0;
 					Pause = false;
 					break;
-				default : //Traduction manquante
+				default : //Missing translation
 					printf("Error: Translation is missing, or something went wrong in the code!\n");
 					printf("But the stopwatch sould normally be reseted");
 					break;
@@ -361,7 +359,7 @@ int main(int argc, char **argv) {
 			}
 
 		//Credits
-		if (pressed & WPAD_BUTTON_MINUS)
+		if (pressed & WPAD_BUTTON_MINUS) {
 			if ( Start > 1)
 			{
 				switch(language){
@@ -422,7 +420,7 @@ int main(int argc, char **argv) {
 					break;
 				}
 			}
-
+		}
 		//Easter Egg
 		if ( pressed & WPAD_BUTTON_1 )
 			if (pressed & WPAD_BUTTON_2)
