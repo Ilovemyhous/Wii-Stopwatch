@@ -27,7 +27,7 @@
 static void *xfb = NULL;
 static GXRModeObj *rmode = NULL;
 
-//L'affichage du logo est international
+//The logo is defined by the void variable
 void afficheLogo(void){
 		sleep(1);
 		printf("                             \r");
@@ -78,7 +78,7 @@ int main(int argc, char **argv) {
 	VIDEO_WaitVSync();
 	if(rmode->viTVMode&VI_NON_INTERLACE) VIDEO_WaitVSync();
 
-	// Détécte la langue du système
+	// Detects the system language. Not used.
 	//LANGUAGE_Init();
 	//language = LANGUAGE_GetPreferredMode(NULL);
 
@@ -89,7 +89,7 @@ int main(int argc, char **argv) {
 	// e.g. printf ("\x1b[%d;%dH", row, column );
 	printf("\x1b[2;0H");
 
-	//Réinitialise le chronomètre
+	//Resets the timer
 	int Hour = 00;
 	int Minute = 00;
 	int Second = 00;
@@ -97,13 +97,13 @@ int main(int argc, char **argv) {
 	int Start = 0;
 	bool Pause = false;
 
-	//Obtient la langue du système
+	//Get the system language
 	int language = CONF_GetLanguage();
 	printf("%d\n", language);
 	//printf("%d\n", Start);
 	
 	switch(language){
-		case 1: //Anglais
+		case 1: //Egnlish
 			printf("Initialising. . . Please Wait\r");
 			afficheLogo();
 			printf("Homebrew made by Ilovemyhouse.\n");
@@ -114,11 +114,11 @@ int main(int argc, char **argv) {
 			printf("Press A again to make a lap.\n");
 			printf("Press B to pause and resume the stopwatch.\n");
 			printf("Press + to stop and reset the timer.\n");
-			printf("Press - to see the credits.");
+			printf("Press - to see the credits.\n");
 			printf("Press the HOME button to exit the stopwatch.\n");
 			printf(" \n");
 			break;
-		case 2: //Allemand
+		case 2: //German
 			printf("Initialisierung. . . Bitte warten\r");
 			afficheLogo();
 			printf("Homebrew von Ilovemyhouse.\n");
@@ -129,10 +129,10 @@ int main(int argc, char **argv) {
 			printf("Druecke wieder A um eine Runde zu machen.\n");
 			printf("Druecke auf B um die Stopuhr zu pausen und zu entpausen.\n");
 			printf("Druecke + um die Stopuhr aufzuhalten, und zu reinitialisieren.\n");
-			printf("Druecke - um die Kredite zu sehen.");
+			printf("Druecke - um die Kredite zu sehen.\n");
 			printf("Druecke den HOME Knopf um die Stopuhr zu verlassen.\n");
 			break;
-		case 3: //Français
+		case 3: //French
 			printf("Initialisation. . . Veuillez patienter\r");
 			afficheLogo();
 			printf("Homebrew fait par Ilovemyhouse.\n");
@@ -143,10 +143,10 @@ int main(int argc, char **argv) {
 			printf("Appuyez de nouveau sur A pour faire un tour.\n");
 			printf("Appuyez sur + pour arrêter, et réinistialiser le chronometre.\n");
 			printf("Appuyez sur B pour mettre le chronomètre sur pause et pour continuer.\n");
-			printf("Appuyez sur - pour afficher les crédits");
+			printf("Appuyez sur - pour afficher les crédits\n");
 			printf("Appuyez sur le bouton HOME pour quitter le chronometre.\n");
 			break;
-		case 5: //Italien. Par ReddyX_73#5472
+		case 5: //Italian by ReddyX_73#5472
 			printf("Caricamento... Attendere\r");
 			afficheLogo();
 			printf("Homebrew realizzato da Ilovemyhouse.\n");
@@ -156,11 +156,11 @@ int main(int argc, char **argv) {
 			printf("Premi A per avviare il cronometro.\n");
 			printf("Premi A per fare un giro.\n");
 			printf("Premi + per fermare e resettare il timer.\n");
-			printf("Premi - per visualizzare i crediti.");
+			printf("Premi - per visualizzare i crediti.\n");
 			printf("Premi B per stoppare e riprendere il cronometro.\n");
 			printf("Premi il pulsante HOME per uscire dal cronometro.\n");
 			break;
-		case 7: //Néerlandais
+		case 7: //Dutch
 			printf("Initialisatie. . . Wacht alsjeblieft\r");
 			afficheLogo();
 			printf("Homebrew gemaakt door Ilovemyhouse.\n");
@@ -169,11 +169,11 @@ int main(int argc, char **argv) {
 			printf(" \n");
 			printf("Druk op A om de stopwatch te starten.\n");
 			printf("Press A again to make a lap.\n");
-			printf("Druk op - om de credits te zien");
+			printf("Druk op - om de credits te zien\n");
 			printf("Druk op + om de timer te stoppen en resetten.\n");
 			printf("Druk op de HOME knop om uit de stopwatch te gaan.\n");
 			break;
-		default : //Traduction manquante
+		default : //Translation missing
 			printf("Error: Translation missing!\n");
 			break;
 	}
@@ -187,7 +187,7 @@ int main(int argc, char **argv) {
 		// this is a "one shot" state which will not fire again until the button has been released
 		u32 pressed = WPAD_ButtonsDown(0);
 
-		//Pour sortir de l'Homebrew, on appuie sur le bouton HOME
+		//To exit the homebrew, you simply have to press the home button
 		if ( pressed & WPAD_BUTTON_HOME ) break;
 		{
 			switch(language){
@@ -208,7 +208,7 @@ int main(int argc, char **argv) {
 					break;
 
 				case 7: //Néerlandais
-					printf("Afsluiten\r");
+					printf("Afsluiten...\r");
 					break;
 
 				default : //Traduction manquante
@@ -220,7 +220,7 @@ int main(int argc, char **argv) {
 			exit(0);
 		}
 
-		//Affiche le compte a rebours puis met le départ à 1
+		//Shows the timer beofre start, and then set's the start value to 1
 		if ( pressed & WPAD_BUTTON_A ){
 			//printf("%d\n", Start);
 			if ( Start == 0 ){
@@ -237,26 +237,26 @@ int main(int argc, char **argv) {
 				//printf("%d\n", Start);
 		}
 
-		//Code pour faire des tours.
+		//Code to make laps
 		if ( pressed & WPAD_BUTTON_A ){
 			Start = Start + 1;
 			if (Start < 1){
 				printf("%d\n", Start);
 				printf("								   %d:%d:%d:%d\r", Hour, Minute, Second, Milli);
 					switch(language){
-						case 1: //Anglais
+						case 1: //English
 							printf("Lap!\n");
 							break;
-						case 2: //Allemand
+						case 2: //German
 							printf("Runde!\n");
 							break;
-						case 3:	//Français
+						case 3:	//French
 							printf("Tour!\n");
 							break;
-						case 5:
+						case 5: //Italian
 							printf("Giro!\n");
 							break;
-						case 7: //Néerlandais
+						case 7: //Dutch
 							printf("Toren!\n");
 							break;
 					}
@@ -289,7 +289,7 @@ int main(int argc, char **argv) {
 					}
 				}	
 
-		//Code pour stopper, et réinistialiser le timer
+		//Code to stop, and reset the stopwatch
 		if ( pressed & WPAD_BUTTON_PLUS ){
 			switch(language){
 				case 1:	//Anglais
@@ -339,12 +339,12 @@ int main(int argc, char **argv) {
 					break;
 				default : //Traduction manquante
 					printf("Error: Translation is missing, or something went wrong in the code!\n");
-					printf("But the time sould normally be reseted");
+					printf("But the stopwatch sould normally be reseted");
 					break;
 			}
 		}
 
-		//Code pour mettre le chronomètre sur pause
+		//Code to make time time pause. Needs to be tested.
 		if (pressed & WPAD_BUTTON_B)
 			if (Start > 1)
 			{
@@ -360,62 +360,59 @@ int main(int argc, char **argv) {
 					}
 			}
 
-		//Crédits
+		//Credits
 		if (pressed & WPAD_BUTTON_MINUS)
 			if ( Start > 1)
 			{
 				switch(language){
-				case 1:	//Anglais
+				case 1:	//English
 					printf("Cannot show the credits because the stopwatch is running.\n");
 					break;
-				case 2: //Allemand
+				case 2: //German
 					printf("Kann die Kredite nicht anzeigen weill die Stopuhr lauuft.\n");
 					break;
-				case 3: //Français
+				case 3: //French
 					printf("Les crédits ne peuvent pas être affiché car le chronomètre est allumé.\n");
 					break;
-				case 5: //Italien
+				case 5: //Italian
 					printf("I crediti non possono essere visualizzati perché il cronometro è acceso.\n");
 					break;
-				case 7: //Néerlandais
+				case 7: //Dutch. Translation needed
 					printf("Gestopt en gereset!\n");
 					break;
-				default : //Traduction manquante
+				default : //Translation missing
 					printf("Error: Translation is missing, or something went wrong in the code!\n");
-					printf("But the time cannot be shown because the stopwatch is running.");
+					printf("But the credits cannot be shown because the timer is running.");
 					break;
 				}
 			}
 			else
 			{
 				switch(language){
-				case 1:	//Anglais
+				case 1:	//English
 					printf("CREDITS\n");
 					printf("Code: Ilovemyhouse\n");
 					printf("Testing: Ilovemyhouse\n");
 					printf("Translation: Some friends on Discord.\n");
 					printf("Libraries: libogc - github.com/devkitPro/libogc");
-					break;
-				case 2: //Allemand
-					printf("Kredite\n");
+				case 2: //German
+					printf("KREDITE\n");
 					printf("Kode: Ilovemyhouse\n");
 					printf("Testen: Ilovemyhouse\n");
 					printf("Uebersetzungen: Freunde auf Discord.\n");
 					printf("Bibliotheken: libogc - github.com/devkitPro/libogc");
-				case 3: //Français
+				case 3: //French
 					printf("CRÉDITS\n");
 					printf("Code: Ilovemyhouse\n");
 					printf("Test: Ilovemyhouse\n");
 					printf("Traductions: Des amis sur Discord.\n");
 					printf("Librairies: libogc - github.com/devkitPro/libogc");
-					break;
-				case 5: //Italien
+				case 5: //Italian
 					printf("I crediti non possono essere visualizzati perché il cronometro è acceso.\n");
+				case 7: //Dutch
+					printf("Insert translation.\n");
 					break;
-				case 7: //Néerlandais
-					printf("Gestopt en gereset!\n");
-					break;
-				default : //Traduction manquante
+				default : //Translation missing
 					printf("Error: Translation is missing, or something went wrong in the code!\n");
 					printf("CREDITS\n");
 					printf("Code: Ilovemyhouse\n");
@@ -425,7 +422,7 @@ int main(int argc, char **argv) {
 					break;
 				}
 			}
-			
+
 		//Easter Egg
 		if ( pressed & WPAD_BUTTON_1 )
 			if (pressed & WPAD_BUTTON_2)
@@ -441,7 +438,7 @@ int main(int argc, char **argv) {
 			if (pressed & WPAD_BUTTON_A)
 				printf("This text is just 0's & 1's.\n");
 
-		//Rafraîchi l'écran.
+		//Refreches screen.
 		VIDEO_WaitVSync();
 	}
 	return 0;
