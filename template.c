@@ -23,6 +23,7 @@
 #define E_GRAVE 0x00E8 
 #define E_AIGU 0x00E9 
 
+char* versionProgram = "v2.0.0 Alpha Dev v1";
 //{
 	//setlocale(LC_CTYPE, "");
 	//printf("%lc", E_AIGU);
@@ -45,6 +46,10 @@ void afficheLogo(void){
 		printf("				                |_|                               \n");
 		printf(" \n");
 		sleep(3);
+}
+
+inline void displayHorraire(int Hour, int Minute, int Second, int Milli) {
+	printf("								   %d:%d:%d:%d\r", Hour, Minute, Second, Milli);
 }
 //---------------------------------------------------------------------------------
 int main(int argc, char **argv) {
@@ -94,10 +99,10 @@ int main(int argc, char **argv) {
 	printf("\x1b[2;0H");
 
 	//Resets the timer
-	int Hour = 00;
-	int Minute = 00;
-	int Second = 00;
-	int Milli = 00;
+	int Hour = 0;
+	int Minute = 0;
+	int Second = 0;
+	int Milli = 0;
 	int Start = 0;
 	bool Pause = false;
 
@@ -111,7 +116,7 @@ int main(int argc, char **argv) {
 			printf("Initialising. . . Please Wait\r");
 			afficheLogo();
 			printf("Homebrew made by Ilovemyhouse.\n");
-			printf("Version 2.0.0 Alpha Dev v1\n");
+			printf("Version %s\n",versionProgram);
 			getchar();
 			printf(" \n");
 			printf("Press A to start the stopwatch.\n");
@@ -126,7 +131,7 @@ int main(int argc, char **argv) {
 			printf("Initialisierung. . . Bitte warten\r");
 			afficheLogo();
 			printf("Homebrew von Ilovemyhouse.\n");
-			printf("Version 2.0.0 Alpha Dev v1\n");
+			printf("Version %s\n",versionProgram);
 			getchar();
 			printf(" \n");
 			printf("Druecke A um die Stopuhr zu starten.\n");
@@ -140,7 +145,7 @@ int main(int argc, char **argv) {
 			printf("Initialisation. . . Veuillez patienter\r");
 			afficheLogo();
 			printf("Homebrew fait par Ilovemyhouse.\n");
-			printf("Version 2.0.0 Alpha Dev v1\n");
+			printf("Version %s\n",versionProgram);
 			getchar();
 			printf(" \n");
 			printf("Appuyez sur A pour demarrer le chronometre.\n");
@@ -154,7 +159,7 @@ int main(int argc, char **argv) {
 			printf("Caricamento... Attendere\r");
 			afficheLogo();
 			printf("Homebrew realizzato da Ilovemyhouse.\n");
-			printf("Versione 2.0.0 Alpha Dev v1\n");
+			printf("Versione %s\n",versionProgram);
 			getchar();
 			printf(" \n");
 			printf("Premi A per avviare il cronometro.\n");
@@ -168,7 +173,7 @@ int main(int argc, char **argv) {
 			printf("Initialisatie. . . Wacht alsjeblieft\r");
 			afficheLogo();
 			printf("Homebrew gemaakt door Ilovemyhouse.\n");
-	    	printf("Versie 2.0.0 Alpha Dev v1\n");
+	    	printf("Versie %s\n",versionProgram);
 			getchar();
 			printf(" \n");
 			printf("Druk op A om de stopwatch te starten.\n");
@@ -248,7 +253,7 @@ int main(int argc, char **argv) {
 			Start = Start + 1;
 			if (Start < 1){
 				printf("%d\n", Start);
-				printf("								   %d:%d:%d:%d\r", Hour, Minute, Second, Milli);
+				displayHorraire(Hour,Minute,Second,Milli);
 					switch(language){
 						case 1: //English
 							printf("Lap!\n");
@@ -271,99 +276,67 @@ int main(int argc, char **argv) {
 
 		//Timer
 		if ( Start > 1){
-			if (Pause == true)
+			if (Pause)
 			{
 				printf("Debug\n");
 				break;
 			}
-			if (Pause == false)
-				{
-					//printf("Debug 2\n");
-					Milli = Milli + 01;
-					printf("								   %d:%d:%d:%d\r", Hour, Minute, Second, Milli);}
-					if ( Milli > 59 ){
-						Second = Second + 1;
-						Milli = 00;
-						if ( Second > 59){
-							Minute = Minute + 1;
-							Second = 0;
-						}
-							if ( Minute > 59 ){
-								Hour = Hour + 1;
+			else
+			{
+				//printf("Debug 2\n");
+				Milli += 1;
+				displayHorraire(Hour,Minute,Second,Milli);
+				if ( Milli > 59 ){
+					Second += 1;
+					Milli = 0;
+					if ( Second > 59){
+						Minute += 1;
+						Second = 0;
+						if ( Minute > 59 ){
+							Hour += 1;
 							Minute = 0;
-							}
+						}
 					}
-				}	
+				}
+			}	
 
 		//Code to stop, and reset the stopwatch
 		if ( pressed & WPAD_BUTTON_PLUS ){
+			Hour = 00;
+			Minute = 00;
+			Second = 00;
+			Milli = 00;
+			Start = 0;
+			Pause = false;
 			switch(language){
 				case 1:	//English
 					printf("Stopped and reset!\n");
-					Hour = 00;
-					Minute = 00;
-					Second = 00;
-					Milli = 00;
-					Start = 0;
-					Pause = false;
 					break;
 				case 2: //German
 					printf("Gestopppt und zurückgesetzt!\n");
-					Hour = 00;
-					Minute = 00;
-					Second = 00;
-					Milli = 00;
-					Start = 0;
-					Pause = false;
 					break;
 				case 3: //French
 					printf("Stoppé et réinistialisé!\n");
-					Hour = 00;
-					Minute = 00;
-					Second = 00;
-					Milli = 00;
-					Start = 0;
-					Pause = false;
 					break;
 				case 5: //Italian
 					printf("Fermato e resettato!\n");
-					Hour = 00;
-					Minute = 00;
-					Second = 00;
-					Milli = 00;
-					Start = 0;
-					Pause = false;
 					break;
 				case 7: //Dutch
 					printf("Gestopt en gereset!\n");
-					Hour = 00;
-					Minute = 00;
-					Second = 00;
-					Milli = 00;
-					Start = 0;
-					Pause = false;
 					break;
 				default : //Missing translation
 					printf("Error: Translation is missing, or something went wrong in the code!\n");
-					printf("But the stopwatch sould normally be reseted");
+					printf("But the stopwatch should normally be reseted");
 					break;
 			}
 		}
 
-		//Code to make time time pause. Needs to be tested.
+		//Code to make time pause. Needs to be tested.
 		if (pressed & WPAD_BUTTON_B)
 			if (Start > 1)
 			{
 				Pause = !Pause;
-					if (Pause == true)
-					{
-						printf("Debug Pause\n");
-					}
-
-					else
-					{
-						printf("Debug unpause\n");
-					}
+				printf("Debug %s",(Pause) ? "Pause" : "Unpause");
 			}
 
 		//Credits
