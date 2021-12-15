@@ -8,3 +8,4 @@ export DEVKITPPC=/opt/devkitpro/devkitPPC
 export DEVKITARM=/opt/devkitpro/devkitARM
 export DEVKITPRO=/opt/devkitpro
 source ~/.bashrc
+cd ..

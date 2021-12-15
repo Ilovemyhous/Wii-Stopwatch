@@ -170,17 +170,17 @@ int main(int argc, char **argv)
 			printf("Premi il pulsante HOME per uscire dal cronometro.\n");
 			break;
 		case 7: //Dutch
-			printf("Initialisatie. . . Wacht alsjeblieft\r");
+			printf("Initialiseren. . . Een moment geduld\r");
 			afficheLogo();
 			printf("Homebrew gemaakt door Ilovemyhouse.\n");
 	    	printf("Versie %s\n",versionProgram);
 			getchar();
 			printf(" \n");
 			printf("Druk op A om de stopwatch te starten.\n");
-			printf("Press A again to make a lap.\n");
-			printf("Druk op - om de credits te zien\n");
-			printf("Druk op + om de timer te stoppen en resetten.\n");
-			printf("Druk op de HOME knop om uit de stopwatch te gaan.\n");
+			printf("Druk nogmaals op A om een ronde tz maken.\n");
+			printf("Druk op + om de stopwatch te stoppen zn te resetten.\n");
+			printf("Druk op - om ze credits te zien.\n");
+			printf("Druk op de HOME knop om de stopwatch af te sluiten.\n");
 			break;
 		default : //Translation missing
 			printf("Error: Translation missing!\n");
@@ -268,7 +268,7 @@ int main(int argc, char **argv)
 							printf("Giro!\n");
 							break;
 						case 7: //Dutch
-							printf("Toren!\n");
+							printf("Ronde!\n");
 							break;
 					}
 			}
@@ -370,34 +370,40 @@ int main(int argc, char **argv)
 			{
 				switch(language){
 				case 1:	//English
+					printf("\n");
 					printf("CREDITS\n");
-					printf("Code: Ilovemyhouse\n");
+					printf("Idea: Ilovemyhouse\n");
 					printf("Testing: Ilovemyhouse\n");
-					printf("Translation: Some friends on Discord.\n");
+					printf("Translation: Some friends and myself\n");
 					printf("Libraries: libogc - github.com/devkitPro/libogc");
 				case 2: //German
+					printf("\n");
 					printf("KREDITE\n");
-					printf("Kode: Ilovemyhouse\n");
+					printf("Idee: Ilovemyhouse\n");
 					printf("Testen: Ilovemyhouse\n");
-					printf("Uebersetzungen: Freunde auf Discord.\n");
+					printf("Uebersetzungen: Freunde und ich selber.\n");
 					printf("Bibliotheken: libogc - github.com/devkitPro/libogc");
 				case 3: //French
+					printf("\n");
 					printf("CRÉDITS\n");
-					printf("Code: Ilovemyhouse\n");
+					printf("Idée: Ilovemyhouse\n");
 					printf("Test: Ilovemyhouse\n");
-					printf("Traductions: Des amis sur Discord.\n");
+					printf("Traductions: Des amis et moi-même.\n");
 					printf("Librairies: libogc - github.com/devkitPro/libogc");
 				case 5: //Italian
-					printf("I crediti non possono essere visualizzati perché il cronometro è acceso.\n");
+					printf("\n");
+					printf("To be translated\n");
 				case 7: //Dutch
+					printf("\n");
 					printf("Insert translation.\n");
 					break;
 				default : //Translation missing
+					printf("\n");
 					printf("Error: Translation is missing, or something went wrong in the code!\n");
 					printf("CREDITS\n");
-					printf("Code: Ilovemyhouse\n");
+					printf("Idea: Ilovemyhouse\n");
 					printf("Testing: Ilovemyhouse\n");
-					printf("Translation: Some friends on Discord.\n");
+					printf("Translation: Some friends and myself.\n");
 					printf("Libraries: libogc - github.com/devkitPro/libogc");
 					break;
 				}
