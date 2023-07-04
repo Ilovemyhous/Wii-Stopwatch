@@ -6,7 +6,7 @@
 
 //ISSUES:
 
-//The pause fonction is not working.
+//The pause function is not working.
 //Issues with some special characters.
 //Credits shown in every language.
 
